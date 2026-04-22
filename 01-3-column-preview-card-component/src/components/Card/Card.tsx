@@ -40,16 +40,16 @@ const Card = (props: CardProps) => {
   const customClass = styleMap[item?.id]?.style;
 
   return (
-    <div className={cx('card-container', customClass)}>
+    <section className={cx('card-container', customClass)}>
       <div>
         <img className={cx('card-icon')} src={customIcon} alt={item?.title} />
-        <h1 className={cx('card-title')}>{item?.title}</h1>
+        <h2 className={cx('card-title')}>{item?.title}</h2>
         <p>{item?.content}</p>
       </div>
       <div>
         <Button id={item?.id} />
       </div>
-    </div>
+    </section>
   );
 };
 
