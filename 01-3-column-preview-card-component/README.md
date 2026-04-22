@@ -25,12 +25,12 @@ Users should be able to:
 ### Screenshot
 
 ![desktop](./src/assets/images/screenshot-desktop.png)
-![mobile](./src/assets/images/screenshot-mobile.png)
+<img src="./src/assets/images/screenshot-mobile.png" width="50%" alt="mobile">
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution](https://github.com/lyrachiang/frontend-mentor-challenges/tree/main/01-3-column-preview-card-component)
+- Live Site URL: [Solution Demo](https://lyrachiang.github.io/frontend-mentor-challenges/01-3-column-preview-card-component/)
 
 ## My process
 
