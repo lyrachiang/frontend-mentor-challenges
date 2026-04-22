@@ -1,0 +1,34 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.card-container {
+  padding: 46px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &.card-gold {
+    background-color: var(--gold);
+  }
+
+  &.card-cyan {
+    background-color: var(--cyan);
+  }
+
+  &.card-green {
+    background-color: var(--green);
+  }
+
+  .card-icon {
+    width: 64px;
+  }
+
+  .card-title {
+    text-transform: uppercase;
+  }
+
+  @include respond-desktop(md) {
+    min-height: 300px;
+  }
+}

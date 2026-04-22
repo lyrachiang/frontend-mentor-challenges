@@ -1,0 +1,26 @@
+.btn-container {
+  padding: 12px 30px;
+  background-color: var(--gray);
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid var(--gray);
+  border-radius: 50px;
+  transition: all .3s;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--transparent-white);
+  }
+  
+  &.btn-gold:not(:hover) {
+    color: var(--gold);
+  }
+
+  &.btn-cyan:not(:hover) {
+    color: var(--cyan);
+  }
+
+  &.btn-green:not(:hover) {
+    color: var(--green);
+  }
+}
