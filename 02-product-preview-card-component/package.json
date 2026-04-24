@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist --dest {dest_name}"
+    "deploy": "gh-pages -d dist --dest 02-product-preview-card-component"
   },
   "dependencies": {
     "classnames": "^2.5.1",
