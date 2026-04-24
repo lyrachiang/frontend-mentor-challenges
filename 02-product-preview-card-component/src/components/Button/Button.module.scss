@@ -1,0 +1,27 @@
+.btn-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  font-family: var(--ff-secondary);
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  transition: all .3s;
+  cursor: pointer;
+
+  .icon {
+    margin-right: 8px;
+  }
+
+  &.cart {
+    background-color: var(--green-500);
+
+    &:hover {
+      background-color: var(--green-700);
+    }
+  }
+}

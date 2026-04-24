@@ -1,0 +1,16 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.content-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+
+  @include respond-desktop(md) {
+    max-width: 350px;
+  }
+}
