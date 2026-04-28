@@ -18,7 +18,7 @@ const FeatureCard = (props: FeatureCardProps) => {
 
   return (
     <article className={cx('feature-card-container', customClass)}>
-      <h4 className={cx('title')}>{title}</h4>
+      <h3 className={cx('title')}>{title}</h3>
       <p className={cx('content')}>{content}</p>
       {icon && (
         <div className={cx('icon')}>{icon}</div>

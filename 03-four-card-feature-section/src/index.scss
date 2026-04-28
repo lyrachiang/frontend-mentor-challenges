@@ -23,8 +23,13 @@ body {
   color: var(--color-grey-400);
 }
 
-h2, h3, h4, p {
+h1, h2, h3, p {
   margin: 0;
+}
+
+h1 {
+  font-weight: 600;
+  color: var(--color-grey-500);
 }
 
 h2 {
@@ -32,11 +37,6 @@ h2 {
 }
 
 h3 {
-  font-weight: 600;
-  color: var(--color-grey-500);
-}
-
-h4 {
   font-weight: 600;
   color: var(--color-grey-500);
 }
