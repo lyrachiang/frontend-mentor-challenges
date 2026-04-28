@@ -1,0 +1,59 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.feature-intro-container {
+  max-width: 500px;
+  text-align: center;
+  margin-bottom: 40px;
+
+  .intro {
+    font-size: 36px;
+  }
+
+  .powered-by {
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+
+  .detail {
+    margin-bottom: 8px;
+  }
+}
+
+@include respond-desktop(md) {
+  .feature-intro-container {
+    .intro {
+      font-size: 30px;
+    }
+
+    .powered-by {
+      font-size: 30px;
+    }
+  }
+}
+
+@include respond-desktop(sm) {
+  .feature-intro-container {
+    max-width: 350px;
+
+    .intro {
+      font-size: 24px;
+    }
+
+    .powered-by {
+      font-size: 24px;
+    }
+  }
+}
+
+@include respond-desktop(xxs) {
+  .feature-intro-container {
+    .intro {
+      font-size: 20px;
+    }
+
+    .powered-by {
+      font-size: 20px;
+    }
+  }
+}

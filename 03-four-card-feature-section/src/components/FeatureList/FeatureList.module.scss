@@ -1,0 +1,64 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.feature-list-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 350px);
+  grid-template-areas:
+  "supervisor team-builder calculator"
+  "supervisor karma calculator";
+  grid-gap: 24px;
+
+  .card {
+    border-radius: 8px;
+    box-shadow: var(--color-shadow) 0px 8px 24px;
+    overflow: hidden;
+  }
+  
+  .supervisor {
+    grid-area: supervisor;
+    align-self: center;
+  }
+  
+  .team-builder {
+    grid-area: team-builder;
+  }
+  
+  .karma {
+    grid-area: karma;
+  }
+  
+  .calculator {
+    grid-area: calculator;
+    align-self: center;
+  }
+}
+
+@include respond-desktop(xl) {
+  .feature-list-container {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 350px);
+    grid-template-areas:
+    "supervisor team-builder"
+    "karma calculator";
+  }
+}
+
+@include respond-desktop(md) {
+  .feature-list-container {
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: 350px;
+    grid-template-areas:
+    "supervisor"
+    "team-builder"
+    "karma"
+    "calculator";
+  }
+}
+
+@include respond-desktop(xxs) {
+  .feature-list-container {
+    grid-template-columns: 1fr;
+  }
+}
