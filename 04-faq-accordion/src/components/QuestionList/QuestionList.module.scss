@@ -1,0 +1,31 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.question-list-section {
+  max-width: 600px;
+  width: 600px;
+  padding: 30px;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  box-shadow: var(--color-shadow) 0px 8px 24px;
+  box-sizing: border-box;
+}
+
+.title-block {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  
+  .title {
+    font-size: 40px;
+    color: var(--color-purple-950);
+    margin-left: 20px;
+  }
+}
+
+@include respond-desktop(md) {
+  .question-list-section {
+    max-width: 550px;
+    width: auto;
+  }
+}

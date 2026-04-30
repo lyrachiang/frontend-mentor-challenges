@@ -1,0 +1,57 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
+
+:root {
+  --ff-primary: "Work Sans", sans-serif;
+
+  --color-white: hsl(0, 100%, 100%);
+  --color-purple-100: hsl(275, 100%, 97%);
+  --color-purple-600: hsl(292, 16%, 49%);
+  --color-purple-800: hsl(281, 83%, 53.9%);
+  --color-purple-950: hsl(292, 42%, 14%);
+  --color-blue-700: hsl(228, 45%, 44%);
+
+  --color-shadow: hsla(212, 6%, 44%, 0.2);
+}
+
+body {
+  margin: 0;
+  font-family: var(--ff-primary);
+  font-size: 16px;
+  background-color: var(--color-purple-100);
+  position: relative;
+
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 320px;
+    background-image: url('@/assets/images/background-pattern-desktop.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+h1, p {
+  margin: 0;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+@include respond-desktop(xs) {
+  body {
+    &:before {
+      height: 232px;
+      background-image: url('@/assets/images/background-pattern-mobile.svg');
+    }
+  }
+}
