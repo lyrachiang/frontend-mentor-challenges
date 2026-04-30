@@ -21,6 +21,7 @@ const QuestionListItem = (props: ListItemProps) => {
     <div className={cx('question-list-item-container')}>
       <button
         className={cx('title-btn')}
+        type="button"
         onClick={onClick}
       >
         <span className={cx('title')}>{title}</span>
