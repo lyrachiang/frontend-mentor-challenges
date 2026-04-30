@@ -1,5 +1,47 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
 .app-container {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+}
+
+.main-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+
+  > section:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+
+  > section:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+}
+
+@include respond-desktop(md) {
+  .main-container {
+    max-width: 300px;
+    flex-direction: column;
+
+    > section:first-child {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 8px;
+    }
+
+    > section:last-child {
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
 }
