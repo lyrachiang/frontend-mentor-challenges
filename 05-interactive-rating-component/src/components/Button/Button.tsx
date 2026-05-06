@@ -35,6 +35,7 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       className={cx('btn-container', `btn-${variant}`, className, customClass)}
+      type="button"
       {...rest}
     >
       {icon && (<span className={cx('btn-icon')}>{icon}</span>)}
