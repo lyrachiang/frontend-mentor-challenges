@@ -4,7 +4,7 @@ import styles from './RatingPage.module.scss';
 
 import Button from '@/components/Button';
 
-import StarIcon from '@/assets/images/icons/icon-star.svg?react';
+import StarIcon from '@/assets/images/icons/icon-star.svg';
 
 const cx = classNames.bind(styles);
 
@@ -19,12 +19,9 @@ const RatingPage = (props: RatingPageProps) => {
   
   return (
     <section className={cx('rating-page-container')}>
-      <Button
-        className={cx('rating-icon')}
-        icon={<StarIcon />}
-        rounded={true}
-        variant='secondary'
-      />
+      <div className={cx('rating-icon')}>
+        <img src={StarIcon} alt='star' />
+      </div>
       <h1 className={cx('rating-title')}>How did we do?</h1>
       <p className={cx('rating-content')}>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
       <div className={cx('rating-state-block')}>

@@ -42,17 +42,6 @@
       color: var(--color-grey-900);
     }
   }
-
-  &.btn-secondary {
-    width: 50px;
-    height: 50px;
-    background-color: var(--color-grey-700);
-    cursor: default;
-
-    .btn-icon {
-      margin-right: 0;
-    }
-  }
   
   &.btn-rating {
     width: 50px;

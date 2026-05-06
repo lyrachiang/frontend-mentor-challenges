@@ -4,7 +4,7 @@ import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
-type ButtonVariant = 'primary' | 'secondary' | 'rating';
+type ButtonVariant = 'primary' | 'rating';
 
 type ButtonProps = {
   icon?: React.ReactNode;
