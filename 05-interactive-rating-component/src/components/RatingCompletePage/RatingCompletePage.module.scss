@@ -1,0 +1,42 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.rating-complete-container {
+  max-width: 400px;
+  background-color: var(--color-grey-900);
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  text-align: center;
+
+  .complete-img {
+    margin-bottom: 20px;
+  }
+
+  .complete-state {
+    width: fit-content;
+    background-color: var(--color-grey-700);
+    color: var(--color-orange-500);
+    margin: 0 auto;
+    margin-bottom: 40px;
+    padding: 8px 20px;
+    border-radius: 50px;
+  }
+
+  .complete-title {
+    color: var(--color-white);
+    margin-bottom: 20px;
+  }
+
+  .complete-content {
+    line-height: 1.5;
+    color: var(--color-grey-500);
+  }
+}
+
+@include respond-desktop(xs) {
+  .rating-complete-container {
+    width: 100%;
+    padding: 40px 20px;
+  }
+}

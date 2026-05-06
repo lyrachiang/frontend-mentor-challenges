@@ -1,0 +1,46 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.rating-page-container {
+  max-width: 400px;
+  width: 400px;
+  background-color: var(--color-grey-900);
+  border-radius: 20px;
+  padding: 30px;
+  box-sizing: border-box;
+
+  .rating-icon {
+    margin-bottom: 24px;
+  }
+
+  .rating-title {
+    color: var(--color-white);
+    margin-bottom: 24px;
+  }
+
+  .rating-content {
+    line-height: 1.5;
+    color: var(--color-grey-500);
+    margin-bottom: 24px;
+  }
+
+  .rating-state-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+}
+
+@include respond-desktop(xs) {
+  .rating-page-container {
+    width: 100%;
+    padding: 30px 20px;
+  }
+}
+
+@include respond-desktop(xxs) {
+  .rating-page-container {
+    padding: 30px 10px;
+  }
+}
