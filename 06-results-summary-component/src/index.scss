@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
+
+
+:root {
+  --ff-primary: "Hanken Grotesk", sans-serif;
+
+  --color-light-red: hsl(0, 100%, 67%);
+  --color-orangey-yellow: hsl(39, 100%, 56%);
+  --color-green-teal: hsl(166, 100%, 37%);
+  --color-blue: hsl(228, 45%, 44%);
+  --color-cobalt-blue: hsl(234, 85%, 45%);
+  --color-light-slate-blue: hsl(252, 100%, 67%);
+  --color-light-royal-blue: hsl(241, 81%, 54%);
+  --color-violet-blue: hsla(256, 72%, 46%, 1);
+  --color-persian-blue: hsla(241, 72%, 46%, 0);
+  --color-white: hsl(0, 0%, 100%);
+  --color-pale-blue: hsl(221, 100%, 96%);
+  --color-light-lavender: hsl(241, 100%, 89%);
+  --color-dark-gray-blue: hsl(224, 30%, 27%);
+  --color-light-gray-blue: hsla(224, 30%, 27%, 0.5);
+
+  --color-shadow: hsla(224, 30%, 27%, 0.08);
+  --color-light-red-bg: hsla(0, 100%, 67%, 0.08);
+  --color-orangey-yellow-bg: hsla(39, 100%, 56%, 0.08);
+  --color-green-teal-bg: hsla(166, 100%, 37%, 0.08);
+  --color-blue-bg: hsla(228, 45%, 44%, 0.08);
+}
+
+body {
+  margin: 0;
+  font-family: var(--ff-primary);
+  font-size: 18px;
+  background-color: var(--color-pale-blue);
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 700;
+}
+
+p {
+  font-weight: 500;
+}

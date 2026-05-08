@@ -1,0 +1,25 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.summary-container {
+  flex: 0 0 50%;
+  padding: 30px;
+  box-sizing: border-box;
+
+  .summary-title {
+    font-size: 24px;
+    color: var(--color-dark-gray-blue);
+    margin-bottom: 24px;
+  }
+
+  .summary-list {
+    margin-bottom: 24px;
+  }
+}
+
+@include respond-desktop(md) {
+  .summary-container {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+}

@@ -1,0 +1,34 @@
+.btn-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  padding: 16px 24px;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  border-radius: 50px;
+  transition: all .3s;
+  cursor: pointer;
+  background: linear-gradient(var(--color-dark-gray-blue), var(--color-dark-gray-blue));
+
+  &:hover {
+    background: linear-gradient(var(--color-light-slate-blue), var(--color-light-royal-blue));
+  }
+
+  .btn-icon {
+    margin-right: 8px;
+  }
+
+  .btn-text {
+    font-weight: 700;
+    color: var(--color-white);
+    text-align: center;
+  }
+
+  &.btn-block {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 50px;
+  }
+}
