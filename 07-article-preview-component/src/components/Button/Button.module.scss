@@ -1,0 +1,62 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.btn-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  transition: all .3s;
+  cursor: pointer;
+
+  .btn-icon {
+    margin-top: 4px;
+  }
+
+  &.btn-round {
+    border-radius: 100%;
+  }
+
+  &.btn-primary {
+    background-color: var(--color-grayish-blue-900);
+
+    &:hover, &:active,
+    &.active, &.active:hover {
+      background-color: var(--color-grayish-blue-500);
+
+      svg path {
+        fill: var(--color-grayish-blue-900);
+      }
+    }
+  }
+
+  &.btn-secondary {
+    background-color: transparent;
+    padding: 4px 8px;
+
+    &:hover {
+      svg path {
+        fill: var(--color-grayish-blue-700);
+      }
+    }
+  }
+}
+
+@include respond-desktop(md) {
+  .share-btn {
+    z-index: 10;
+  }
+}
+
+@include respond-desktop(xxs) {
+  .btn-container {
+    &.btn-secondary {
+      padding: 4px;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.social-share-container {
+  position: absolute;
+  top: -85px;
+  right: -100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-grayish-blue-300);
+  padding: 10px 30px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px var(--color-shadow);
+
+  &:after {
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 15px solid var(--color-grayish-blue-300);
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .share-title {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--color-grayish-blue-500);
+    margin-right: 10px;
+  }
+}
+
+@include respond-desktop(md) {
+  .social-share-container {
+    top: -15px;
+    bottom: -15px;
+    left: -40px;
+    right: -40px;
+    justify-content: flex-start;
+    padding: 14px 40px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+@include respond-desktop(xxs) {
+  .social-share-container {
+    .share-title {
+      margin-right: 8px;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.author-info-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .author-desc {
+    display: flex;
+    align-items: center;
+
+    .author-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      margin-right: 16px;
+    }
+
+    .author-name {
+      font-weight: 700;
+      color: var(--color-grayish-blue-300);
+      margin-bottom: 4px;
+    }
+
+    .author-date {
+      color: var(--color-grayish-blue-700);
+    }
+  }
+}
