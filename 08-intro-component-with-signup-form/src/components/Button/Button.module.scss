@@ -1,0 +1,47 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.btn-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  padding: 20px;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  transition: all .3s;
+  cursor: pointer;
+  background-color: var(--color-green-400);
+  box-shadow: 0 4px 0 var(--color-green-500);
+
+  &:hover {
+    background-color: var(--color-green-300);
+  }
+
+  .btn-icon {
+    margin-right: 8px;
+  }
+
+  .btn-text {
+    font-weight: 600;
+    color: var(--color-white);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &.btn-block {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@include respond-desktop(xxs) {
+  .btn-container {
+    .btn-text {
+      font-size: 12px;
+    }
+  }
+}

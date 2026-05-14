@@ -1,0 +1,38 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --ff-primary: "Poppins", sans-serif;
+
+  --color-white: hsl(0, 0%, 100%);
+  --color-blue-400: hsl(228, 45%, 44%);
+  --color-red-400: hsl(0, 100%, 74%) ;
+  --color-green-300: hsl(154, 65%, 60%);
+  --color-green-400: hsl(154, 59%, 51%);
+  --color-green-500: hsl(154, 59%, 45%);
+  --color-purple-700: hsl(248, 32%, 49%);
+  --color-gray-900: hsl(249, 10%, 26%) ;
+  --color-purple-350: hsl(246, 25%, 77%);
+
+  --color-shadow: hsla(249, 10%, 26%, 0.18);
+}
+
+body {
+  margin: 0;
+  font-family: var(--ff-primary);
+  font-size: 16px;
+  font-weight: 400;
+  background-color: var(--color-red-400);
+  background-image: url('@/assets/images/bg-intro-desktop.png');
+  box-sizing: border-box;
+
+  @include respond-desktop(md) {
+    background-image: url('@/assets/images/bg-intro-mobile.png');
+  }
+}
+
+h1, p {
+  margin: 0;
+}
