@@ -1,0 +1,32 @@
+.header-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-heading);
+  border-radius: 16px;
+  margin-bottom: 40px;
+
+  svg > path {
+    fill: var(--color-text-heading);
+  }
+  
+  .btn-theme {
+    width: 40px;
+    height: 40px;
+    max-width: unset;
+    padding: 12px 8px 8px;
+    background-color: var(--color-button-theme-bg);
+
+    &:focus-visible {
+      outline: 2px solid var(--color-button-theme-border-focus);
+      outline-offset: 2px;
+    }
+
+    &:hover {
+      background-color: var(--color-button-theme-bg-hover);
+    }
+  }
+}

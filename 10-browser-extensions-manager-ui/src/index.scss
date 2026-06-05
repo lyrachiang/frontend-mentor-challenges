@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap');
+
+@mixin theme-light {
+  /* Background */
+  --color-bg: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+  --color-bg-surface: hsl(200, 60%, 99%);
+
+  /* Text */
+  --color-text: hsl(225, 23%, 24%);
+  --color-text-heading: hsl(227, 75%, 14%);
+  --color-text-footer: hsl(227, 75%, 14%);
+  --color-text-link: hsl(228, 45%, 44%);
+
+  /* Border */
+  --color-border: hsl(217, 61%, 90%);
+  --color-border-heading: hsl(217, 61%, 90%);
+
+  /* Button */
+  --color-button-primary-bg: hsl(200, 60%, 99%);
+  --color-button-primary-bg-hover: hsl(0, 0%, 93%);
+  --color-button-primary-bg-focus: hsl(0, 0%, 93%);
+  --color-button-primary-bg-active: hsl(3, 77%, 44%);
+  --color-button-primary-bg-active-hover: hsl(3, 71%, 56%);
+  --color-button-primary-text: hsl(226, 25%, 17%);
+  --color-button-primary-text-active: hsl(200, 60%, 99%);
+  --color-button-primary-border: hsl(217, 61%, 90%);
+  --color-button-primary-border-hover: hsl(217, 61%, 90%);
+  --color-button-primary-border-focus: hsl(3, 86%, 64%);
+  --color-button-primary-border-active: hsl(3, 77%, 44%);
+  --color-button-primary-border-active-hover: hsl(3, 71%, 56%);
+
+  --color-button-secondary-bg: hsl(200, 60%, 99%);
+  --color-button-secondary-bg-hover: hsl(3, 77%, 44%);
+  --color-button-secondary-bg-focus: hsl(0, 0%, 93%);
+  --color-button-secondary-text: hsl(226, 25%, 17%);
+  --color-button-secondary-text-hover: hsl(200, 60%, 99%);
+  --color-button-secondary-border: hsl(217, 61%, 90%);
+  --color-button-secondary-border-hover: hsl(3, 77%, 44%);
+  --color-button-secondary-border-focus: hsl(3, 77%, 44%);
+
+  --color-button-theme-bg: hsl(0, 0%, 93%);
+  --color-button-theme-bg-hover: hsl(0, 0%, 78%);
+  --color-button-theme-border-focus: hsl(3, 86%, 64%);
+  
+  /* Switch */
+  --color-switch-thumb: hsl(200, 60%, 99%);
+  --color-switch-track: hsl(0, 0%, 78%);
+  --color-switch-track-active: hsl(3, 77%, 44%);
+  --color-switch-border-focus: hsl(3, 86%, 64%);
+}
+
+@mixin theme-dark {
+  /* Background */
+  --color-bg: linear-gradient(180deg, #040918 0%, #091540 100%);
+  --color-bg-surface: hsl(226, 25%, 17%);
+
+  /* Text */
+  --color-text: hsl(0, 0%, 78%);
+  --color-text-heading: hsl(200, 60%, 99%);
+  --color-text-footer: hsl(217, 61%, 90%);
+  --color-text-link: hsl(212, 86%, 64%);
+
+  /* Border */
+  --color-border: hsl(226, 11%, 37%);
+  --color-border-heading: hsl(226, 25%, 17%);
+
+  /* Button */
+  --color-button-primary-bg: hsl(226, 25%, 17%);
+  --color-button-primary-bg-hover: hsl(226, 11%, 37%);
+  --color-button-primary-bg-focus: hsl(226, 11%, 37%);
+  --color-button-primary-bg-active: hsl(3, 71%, 56%);
+  --color-button-primary-bg-active-hover: hsl(3, 71%, 56%);
+  --color-button-primary-text: hsl(0, 0%, 93%);
+  --color-button-primary-text-active: hsl(227, 75%, 14%);
+  --color-button-primary-border: hsl(226, 11%, 37%);
+  --color-button-primary-border-hover: hsl(226, 11%, 37%);
+  --color-button-primary-border-focus: hsl(3, 86%, 64%);
+  --color-button-primary-border-active: hsl(3, 71%, 56%);
+  --color-button-primary-border-active-hover: hsl(3, 71%, 56%);
+
+  --color-button-secondary-bg: hsl(226, 25%, 17%);
+  --color-button-secondary-bg-hover: hsl(3, 71%, 56%);
+  --color-button-secondary-bg-focus: hsl(226, 11%, 37%);
+  --color-button-secondary-text: hsl(0, 0%, 93%);
+  --color-button-secondary-text-hover: hsl(226, 25%, 17%);
+  --color-button-secondary-border: hsl(226, 11%, 37%);
+  --color-button-secondary-border-hover: hsl(3, 71%, 56%);
+  --color-button-secondary-border-focus: hsl(3, 71%, 56%);
+
+  --color-button-theme-bg: hsl(225, 23%, 24%);
+  --color-button-theme-bg-hover: hsl(226, 11%, 37%);
+  --color-button-theme-border-focus: hsl(3, 71%, 56%);
+
+  /* Switch */
+  --color-switch-thumb: hsl(200, 60%, 99%);
+  --color-switch-track: hsl(226, 11%, 37%);
+  --color-switch-track-active: hsl(3, 71%, 56%);
+  --color-switch-border-focus: hsl(3, 86%, 64%);
+}
+
+:root {
+  --ff-primary: "Noto Sans", sans-serif;
+  @include theme-light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ff-primary);
+  font-size: 16px;
+  background: var(--color-bg);
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root { @include theme-dark; }
+}
+
+[data-theme='light'] { @include theme-light; }
+[data-theme='dark'] { @include theme-dark; }
