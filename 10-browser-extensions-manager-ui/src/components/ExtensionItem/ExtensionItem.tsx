@@ -46,7 +46,7 @@ const ExtensionItem = (props: ExtensionItemProps) => {
   return (
     <div className={cx('extension-item-container')}>
       <div className={cx('item-info')}>
-        <img className={cx('item-logo')} src={getImageUrl(logo)} />
+        <img className={cx('item-logo')} src={getImageUrl(logo)} alt={`${name} logo`} />
         <div>
           <h2 className={cx('item-name')}>{name}</h2>
           <p className={cx('item-desc')}>{description}</p>
