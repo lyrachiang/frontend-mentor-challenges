@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;600;700&display=swap');
+
+:root {
+  --ff-primary: "Red Hat Text", sans-serif;
+
+  --color-blue: hsl(228, 45%, 44%);
+  --color-red-400: hsl(14, 86%, 42%);
+  --color-red-600: hsl(14, 86%, 35%);
+  --color-green: hsl(159, 69%, 38%);
+  --color-rose-50: hsl(20, 50%, 98%);
+  --color-rose-100: hsl(13, 31%, 94%);
+  --color-rose-300: hsl(14, 25%, 72%);
+  --color-rose-400: hsl(7, 20%, 60%);
+  --color-rose-500: hsl(12, 20%, 44%);
+  --color-rose-900: hsl(14, 65%, 9%);
+
+  --color-bg-mask: rgba(0, 0, 0, 0.45);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ff-primary);
+  font-size: 16px;
+  background-color: var(--color-rose-100);
+}

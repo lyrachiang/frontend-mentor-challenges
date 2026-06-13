@@ -1,0 +1,32 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.app-container {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: 750px auto;
+  grid-gap: 24px;
+  flex: 1;
+}
+
+@include respond-desktop(xl) {
+  .main-container {
+    max-width: 1000px;
+    grid-template-columns: 550px auto;
+  }
+}
+
+@include respond-desktop(lg) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+}

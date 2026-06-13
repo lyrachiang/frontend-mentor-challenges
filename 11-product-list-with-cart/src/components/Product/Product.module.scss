@@ -1,0 +1,41 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.prod-container {
+  .prod-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--color-rose-900);
+    margin-bottom: 30px;
+  }
+}
+
+.prod-list-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+@include respond-desktop(xl) {
+  .prod-list-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include respond-desktop(lg) {
+  .prod-list-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@include respond-desktop(md) {
+  .prod-list-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include respond-desktop(sm) {
+  .prod-list-container {
+    grid-template-columns: 1fr;
+  }
+}
