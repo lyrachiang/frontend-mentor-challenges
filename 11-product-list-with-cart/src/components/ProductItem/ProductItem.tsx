@@ -44,8 +44,8 @@ const ProductItem = (props: ProductItemProps) => {
           : (<Button className={cx('add-cart-btn')} icon={<CartIcon />} onClick={() => addItem(props)}>Add to Cart</Button>)
         }
       </div>
-      <h3 className={cx('prod-category')}>{category}</h3>
-      <h4 className={cx('prod-name')}>{name}</h4>
+      <p className={cx('prod-category')}>{category}</p>
+      <h2 className={cx('prod-name')}>{name}</h2>
       <p className={cx('prod-price')}>{`$${price.toFixed(2)}`}</p>
     </div>
   );
