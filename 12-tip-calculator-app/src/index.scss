@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+:root {
+  --ff-primary: "Space Mono", monospace;;
+
+  --color-red: hsl(10, 100%, 66%);
+  --color-blue-700: hsl(228, 45%, 44%);
+  --color-green-200: hsl(173, 61%, 77%);
+  --color-green-400: hsl(172, 67%, 45%);
+  --color-green-700: hsl(183, 79%, 24%);
+  --color-green-800: hsl(183, 85%, 21%);
+  --color-green-900: hsl(183, 100%, 15%);
+  --color-grey-500: hsl(186, 14%, 43%);
+  --color-grey-400: hsl(184, 14%, 56%);
+  --color-grey-200: hsl(185, 41%, 84%);
+  --color-grey-50: hsl(189, 47%, 97%);
+  --color-white: hsl(0, 100%, 100%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ff-primary);
+  font-size: 24px;
+  background-color: var(--color-grey-200);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-green-700) transparent;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--color-green-700);
+}

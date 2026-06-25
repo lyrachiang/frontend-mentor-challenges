@@ -1,0 +1,75 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.form-fieldset-container {
+  border: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+
+  .fieldset-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-grey-500);
+    margin-bottom: 8px;
+  }
+
+  .fieldset-block {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 16px;
+
+    .fieldset-btn {
+      font-family: var(--ff-primary);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-white);
+      background-color: var(--color-green-900);
+      border-radius: 8px;
+      padding: 8px 24px;
+
+      &:hover {
+        color: var(--color-green-900);
+        background-color: var(--color-green-200);
+      }
+
+      &.active {
+        color: var(--color-green-900);
+        background-color: var(--color-green-400);
+      }
+    }
+
+    > input {
+      width: 100%;
+      font-family: var(--ff-primary);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-green-900);
+      background-color: var(--color-grey-50);
+      border: none;
+      border-radius: 8px;
+      text-align: right;
+      caret-color: var(--color-green-400);
+
+      &::placeholder {
+        color: var(--color-grey-500);
+        text-align: center;
+      }
+
+      &:focus {
+        outline: 2px solid var(--color-green-400);
+      }
+    }
+  }
+}
+
+@include respond-desktop(sm) {
+  .form-fieldset-container {
+    .fieldset-block {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

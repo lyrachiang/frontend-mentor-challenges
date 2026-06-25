@@ -1,0 +1,26 @@
+.btn-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  padding: 16px 24px;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  transition: all .3s;
+  cursor: pointer;
+
+  &:focus {
+    outline: 2px solid var(--color-green-400);
+  }
+
+  .btn-icon:has(+ .btn-text) {
+    margin-right: 8px;
+  }
+
+  &.btn-block {
+    max-width: 100%;
+    width: 100%;
+  }
+}

@@ -1,0 +1,21 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.attribution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 11px;
+  padding: 8px 20px;
+
+  a {
+    color: var(--color-blue-700);
+  }
+}
+
+@include respond-desktop(sm) {
+  .attribution {
+    background-color: var(--color-white);
+  }
+}
