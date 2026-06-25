@@ -13,9 +13,9 @@ const App = () => {
   return (
     <div className={cx('app-container')}>
       <main className={cx('main-container')}>
-        <h1 className={cx('logo-container')}>
+        <div className={cx('logo-container')}>
           <img src={Logo} alt="Splitter" />
-        </h1>
+        </div>
         <Calculator />
       </main>
       <Footer />

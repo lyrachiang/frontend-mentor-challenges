@@ -123,11 +123,7 @@ const Calculator = () => {
   const { tipPerPerson, totalPerPerson } = getCalculationResult(formData);
 
   return (
-    <form
-      className={cx('calculator-container')}
-      noValidate
-      action=""
-    >
+    <div className={cx('calculator-container')}>
       <div className={cx('bill-container')}>
         <FormField
           id='bill'
@@ -185,7 +181,7 @@ const Calculator = () => {
           RESET
         </Button>
       </div>
-    </form>
+    </div>
   );
 };
 
