@@ -25,7 +25,7 @@ const Notification = () => {
     });
   };
 
-  const onClickNotification = (e: React.MouseEvent<HTMLAnchorElement>, name: string) => {
+  const onClickNotification = (e: React.MouseEvent<HTMLDivElement>, name: string) => {
     e.preventDefault();
 
     setNotifications((prev) => {

@@ -21,7 +21,7 @@ type NotificationItem = {
 type NotificationItemType = {
   dataSource: NotificationItem,
   onClickNotification: (
-    e: React.MouseEvent<HTMLAnchorElement>,
+    e: React.MouseEvent<HTMLDivElement>,
     name: string
   ) => void;
 };
@@ -84,7 +84,10 @@ const NotificationItem = (props: NotificationItemType) => {
   } = dataSource;
 
   return (
-    <a className={cx('notification-item-container', { active: !hasRead })} href="#" onClick={(e) => onClickNotification(e, name)}>
+    <div
+      className={cx('notification-item-container', { active: !hasRead })} 
+      onClick={(e) => onClickNotification(e, name)}
+    >
       <img className={cx('avatar-image')} src={getImageUrl(avatar)} alt={name} />
       <div className={cx('message-info')}>
         <div>
@@ -96,7 +99,7 @@ const NotificationItem = (props: NotificationItemType) => {
         </div>
         {message && <a className={cx('private-message')} href="#">{message}</a>}
       </div>
-    </a>
+    </div>
   );
 };
 

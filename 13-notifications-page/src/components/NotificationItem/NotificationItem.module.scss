@@ -9,6 +9,7 @@
   padding: 20px;
   text-decoration: none;
   transition: all .3s;
+  cursor: pointer;
 
   &.active {
     background-color: var(--color-navy-50);
