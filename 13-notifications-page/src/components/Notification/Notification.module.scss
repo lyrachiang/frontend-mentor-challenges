@@ -1,0 +1,75 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.notification-container {
+  padding: 30px;
+  background-color: var(--color-white);
+  border-radius: 10px;
+
+  .notification-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    > div {
+      display: flex;
+      align-items: center;
+
+      .title {
+        font-size: 30px;
+        font-weight: 800;
+        margin-right: 12px;
+      }
+
+      .notify-count {
+        padding: 4px 12px;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--color-white);
+        background-color: var(--color-blue-950);
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .mark-btn {
+    font-size: 16px;
+    color: var(--color-gray-500);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-blue-950);
+    }
+  }
+}
+
+@include respond-desktop(md) {
+  .notification-container {
+    padding: 30px 16px;
+
+    .notification-header {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@include respond-desktop(xs) {
+  .notification-container {
+    .notification-header {
+      > div {
+        .title {
+          font-size: 20px;
+        }
+
+        .notify-count {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .mark-btn {
+      font-size: 14px;
+    }
+  }
+}
