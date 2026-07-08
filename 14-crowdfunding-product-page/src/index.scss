@@ -1,0 +1,64 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
+
+:root {
+  --ff-primary: "Commissioner", sans-serif;
+
+  --color-black: hsl(0, 0%, 0%);
+  --color-blue-700: hsl(228, 45%, 44%);
+  --color-gray-200: hsl(0, 0%, 97%);
+  --color-gray-300: hsl(0, 0%, 95%);
+  --color-gray-400: hsl(0, 0%, 80%);
+  --color-gray-500: hsl(0, 0%, 48%);
+  --color-green-400: hsl(176, 50%, 47%);
+  --color-green-700: hsl(176, 72%, 28%);
+  --color-white: hsl(0, 100%, 100%);
+
+  --color-bg-mask: rgba(0, 0, 0, 0.45);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-size: 16px;
+  background-image: url('@/assets/images/image-hero-desktop.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: var(--color-gray-200);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-green-700) transparent;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--color-green-700);
+}
+
+@include respond-desktop(md) {
+  body {
+    background-image: url('@/assets/images/image-hero-mobile.jpg');
+  }
+}

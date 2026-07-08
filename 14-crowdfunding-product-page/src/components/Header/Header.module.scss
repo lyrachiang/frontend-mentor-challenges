@@ -1,0 +1,109 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  margin-bottom: 150px;
+  z-index: 1;
+
+  .desktop-menu-container {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin: 0 20px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      > a {
+        color: var(--color-white);
+        font-weight: 500;
+        text-decoration: none;
+        transition: all .3s;
+
+        &:hover {
+          color: var(--color-green-400);
+        }
+      }
+    }
+  }
+
+  .mobile-menu-container {
+    display: none;
+  }
+}
+
+@include respond-desktop(md) {
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    margin-bottom: 150px;
+
+    .desktop-menu-container {
+      display: none;
+    }
+
+    .mobile-menu-container {
+      display: block;
+      position: relative;
+
+      .menu-mask {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        height: 100%;
+        background-color: var(--color-bg-mask);
+        pointer-events: none;
+      }
+
+      .menu-icon {
+        cursor: pointer;
+      }
+
+      > ul {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: calc(100dvw - 60px);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background-color: var(--color-white);
+        border-radius: 10px;
+        z-index: 1001;
+
+        li {
+          border-bottom: 1px solid var(--color-gray-500);
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          > a {
+            display: block;
+            padding: 30px;
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--color-black);
+            text-decoration: none;
+            transition: all .3s;
+
+            &:hover {
+              color: var(--color-green-400);
+            }
+          }
+        }
+      }
+    }
+  }
+}
