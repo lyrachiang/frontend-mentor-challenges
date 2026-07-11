@@ -21,6 +21,8 @@ const externalTooltipHandler = (tooltipEl: HTMLDivElement, context: ContextProps
 
   if (tooltip.opacity === 0) {
     tooltipEl.style.opacity = '0';
+    tooltipEl.style.left = '0px';
+    tooltipEl.style.top = '0px';
     return;
   }
 
