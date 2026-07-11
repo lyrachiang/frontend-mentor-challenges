@@ -1,0 +1,113 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.spending-container {
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.chart-section {
+  .chart-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-brown-950);
+    margin-bottom: 30px;
+  }
+}
+
+.summary-section {
+  .summary-title {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color-brown-400);
+    margin-bottom: 10px;
+  }
+
+  .summary-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .summary-amount {
+      font-size: 46px;
+      font-weight: 700;
+      color: var(--color-brown-950);
+    }
+
+    .summary-rise {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-brown-950);
+      text-align: right;
+    }
+
+    .summary-compare {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--color-brown-400);
+      text-align: right;
+    }
+  }
+}
+
+@include respond-desktop(sm) {
+  .spending-container {
+    padding: 20px;
+  }
+
+  .chart-section {
+    .chart-title {
+      font-size: 24px;
+    }
+  }
+
+  .summary-section {
+    .summary-title {
+      font-size: 16px;
+    }
+
+    .summary-info {
+      .summary-amount {
+        font-size: 36px;
+      }
+
+      .summary-rise {
+        font-size: 16px;
+      }
+
+      .summary-compare {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@include respond-desktop(xxs) {
+  .chart-section {
+    .chart-title {
+      font-size: 20px;
+    }
+  }
+
+  .summary-section {
+    .summary-title {
+      font-size: 14px;
+    }
+
+    .summary-info {
+      .summary-amount {
+        font-size: 30px;
+      }
+
+      .summary-rise {
+        font-size: 14px;
+      }
+
+      .summary-compare {
+        font-size: 14px;
+      }
+    }
+  }
+}

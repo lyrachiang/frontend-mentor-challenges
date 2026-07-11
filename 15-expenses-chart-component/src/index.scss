@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+:root {
+  --ff-primary: "DM Sans", sans-serif;
+
+  --color-white: hsl(0, 100%, 100%);
+  --color-red-100: hsl(26, 66%, 93%);
+  --color-red-500: hsl(10, 79%, 65%);
+  --color-blue-300: hsl(186, 34%, 65%);
+  --color-blue-700: hsl(228, 45%, 44%);
+  --color-brown-300: hsl(28, 10%, 83%);
+  --color-brown-400: hsl(28, 10%, 53%);
+  --color-brown-950: hsl(25, 47%, 15%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-size: 18px;
+  background-color: var(--color-red-100);
+}
