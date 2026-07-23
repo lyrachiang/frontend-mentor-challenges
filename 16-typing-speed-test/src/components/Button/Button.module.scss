@@ -1,0 +1,137 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.btn-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  padding: 16px 24px;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  transition: all .3s;
+  cursor: pointer;
+
+  .btn-text:has(+ .btn-icon) {
+    margin-right: 16px;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &.btn-block {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  &.btn-primary {
+    background-color: var(--color-blue-600);
+    padding: 16px;
+    border-radius: 10px;
+
+    .btn-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-neutral-0);
+    }
+
+    &:hover {
+      background-color: var(--color-blue-400);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: var(--color-neutral-0);
+    padding: 16px;
+    border-radius: 10px;
+
+    svg path {
+      fill: var(--color-neutral-900);
+    }
+
+    .btn-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-neutral-900);
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &.btn-default {
+    background-color: var(--color-neutral-800);
+    padding: 16px;
+    border-radius: 10px;
+
+    .btn-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-neutral-0);
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &.btn-option {
+    color: var(--color-neutral-0);
+    background-color: transparent;
+    border: 1px solid var(--color-neutral-500);
+    border-radius: 8px;
+    padding: 4px 8px;
+
+    &:focus-visible {
+      color: var(--color-neutral-0);
+      border-color: var(--color-neutral-0);
+      outline: 2px solid var(--color-blue-600);
+      outline-offset: 2px;
+    }
+
+    &:hover:not(:disabled),
+    &.active {
+      color: var(--color-blue-400);
+      border-color: var(--color-blue-400);
+    }
+  }
+
+  &.btn-select {
+    color: var(--color-neutral-0);
+    background-color: transparent;
+    border: 1px solid var(--color-neutral-500);
+    border-radius: 8px;
+    padding: 8px 10px;
+    min-width: 160px;
+
+    &:focus-visible {
+      color: var(--color-neutral-0);
+      border-color: var(--color-neutral-0);
+      outline: 2px solid var(--color-blue-600);
+      outline-offset: 2px;
+    }
+
+    .btn-text {
+      font-size: 20px;
+      text-transform: capitalize;
+    }
+  }
+}
+
+@include respond-desktop(xxs) {
+  .btn-container {
+    &.btn-select {
+      padding: 8px;
+      min-width: 130px;
+
+      .btn-text {
+        font-size: 16px;
+      }
+    }
+  }
+}

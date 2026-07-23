@@ -1,0 +1,13 @@
+.attribution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: var(--color-neutral-0);
+  padding: 8px 20px;
+
+  a {
+    color: var(--color-blue-700);
+  }
+}

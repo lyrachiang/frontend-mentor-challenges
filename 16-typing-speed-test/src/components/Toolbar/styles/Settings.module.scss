@@ -1,0 +1,157 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.settings-container {
+  display: flex;
+  align-items: center;
+
+  > div {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-right: 1px solid var(--color-neutral-800);
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+      border-right: none;
+    }
+
+    &.settings-option-btn {
+      display: flex;
+    }
+
+    &.settings-option-select {
+      display: none;
+    }
+
+    > button {
+      margin-right: 6px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .settings-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-neutral-500);
+    margin-right: 8px;
+  }
+}
+
+@include respond-desktop(md) {
+  .settings-container {
+    align-items: flex-start;
+
+    > div {
+      padding: 0;
+      border-right: none;
+
+      &.settings-option-btn {
+        display: none;
+      }
+
+      &.settings-option-select {
+        position: relative;
+        display: block;
+        padding: 0 8px;
+
+        .select-menu {
+          position: absolute;
+          top: 50px;
+          left: 8px;
+          width: calc(100% - 16px);
+          list-style: none;
+          background-color: var(--color-neutral-800);
+          padding: 0;
+          border-radius: 8px;
+          overflow: hidden;
+          z-index: 1;
+
+          > li {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--color-neutral-0);
+            padding: 16px;
+            border-bottom: 1px solid var(--color-neutral-500);
+            cursor: pointer;
+
+            &:last-child {
+               border-bottom: none;
+            }
+
+            &:hover {
+              opacity: 0.5;
+            }
+
+            .radio {
+              position: relative;
+              width: 20px;
+              height: 20px;
+              border: 2px solid var(--color-neutral-500);
+              border-radius: 50%;
+              margin-right: 16px;
+
+              &:after {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: none;
+                content: "";
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: var(--color-neutral-800);
+              }
+            }
+
+            &.active {
+              .radio {
+                background-color: var(--color-blue-400);
+                border-color: var(--color-blue-400);
+
+                &:after {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      > button {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@include respond-desktop(xxs) {
+  .settings-container {
+    > div {
+      &.settings-option-select {
+        .select-menu {
+          > li {
+            padding: 16px 8px;
+
+            .radio {
+              position: relative;
+              width: 16px;
+              height: 16px;
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

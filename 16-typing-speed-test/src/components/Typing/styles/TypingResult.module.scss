@@ -1,0 +1,112 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.typing-result-container {
+  padding: 20px;
+}
+
+.result-page-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .result-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--color-neutral-0);
+    margin-top: 30px;
+    margin-bottom: 8px;
+  }
+
+  .result-desc {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-neutral-500);
+    margin-bottom: 50px;
+  }
+
+  .score-block {
+    display: grid;
+    grid-template-columns: repeat(3, 140px);
+    grid-gap: 16px;
+    margin-bottom: 50px;
+
+    > div {
+      padding: 12px 20px;
+      border: 1px solid var(--color-neutral-800);
+      border-radius: 8px;
+      background-color: var(--color-neutral-900);
+    }
+
+    .score-title {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--color-neutral-500);
+      margin-bottom: 8px;
+    }
+
+    .score-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-neutral-0);
+
+      &.correct {
+        color: var(--color-green-500);
+      }
+
+      &.incorrect {
+        color: var(--color-red-500);
+      }
+
+      > span {
+        color: var(--color-neutral-500);
+
+        &.correct {
+          color: var(--color-green-500);
+        }
+
+        &.incorrect {
+          color: var(--color-red-500);
+        }
+      }
+    }
+  }
+
+  .complete-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 16px rgba(76, 224, 122, 0.15), 0 0 0 32px rgba(76, 224, 122, 0.08);
+    margin-bottom: 30px;
+  }
+}
+
+@include respond-desktop(md) {
+  .typing-result-container {
+    padding: 20px 0;
+  }
+
+  .result-page-section {
+    .result-desc {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .score-block {
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@include respond-desktop(xs) {
+  .result-page-section {
+    .result-title {
+      font-size: 24px;
+    }
+  }
+}
