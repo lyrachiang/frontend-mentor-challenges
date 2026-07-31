@@ -1,0 +1,145 @@
+.guest-info-card {
+  padding: 16px;
+  background-color: var(--color-neutral-0);
+  border: 1px solid var(--color-neutral-400);
+  border-radius: 10px;
+  box-shadow: var(--color-neutral-400) 0px 8px 24px;
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    > div {
+      display: flex;
+      align-items: center;
+    }
+
+    .card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-neutral-400);
+      padding: 8px;
+      border-radius: 8px;
+
+      > svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .card-category {
+      font-family: var(--ff-dm-sans);
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-left: 8px;
+    }
+
+    .card-id {
+      font-family: var(--ff-fraunces);
+      font-size: 24px;
+      font-weight: 400;
+    }
+  }
+
+  .card-title {
+    font-family: var(--ff-fraunces);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--color-neutral-900);
+    margin-bottom: 8px;
+  }
+
+  .card-desc {
+    font-family: var(--ff-dm-sans);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-neutral-600);
+    margin-bottom: 16px;
+  }
+
+  .card-content {
+    font-family: var(--ff-dm-sans);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-neutral-700);
+  }
+
+  .card-note {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-neutral-200);
+    padding: 6px 8px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+
+    &:last-child {
+      padding: 2px 8px;
+      margin-bottom: 0;
+    }
+
+    .title {
+      font-family: var(--ff-dm-sans);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--color-neutral-600);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .value {
+      font-family: var(--ff-dm-sans);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--color-neutral-900);
+
+      + button {
+        margin-left: 4px;
+      }
+    }
+  }
+
+  &.card-arrival {
+    .card-header {
+      .card-icon {
+        background-color: var(--color-terracotta-600);
+      }
+    }
+
+    .card-category,
+    .card-id {
+      color: var(--color-terracotta-600);
+    }
+  }
+
+  &.card-wifi {
+    .card-header {
+      .card-icon {
+        background-color: var(--color-blue-500);
+      }
+    }
+
+    .card-category,
+    .card-id {
+      color: var(--color-blue-500);
+    }
+  }
+
+  &.card-breakfast {
+    .card-header {
+      .card-icon {
+        background-color: var(--color-rose-500);
+      }
+    }
+
+    .card-category,
+    .card-id {
+      color: var(--color-rose-500);
+    }
+  }
+}

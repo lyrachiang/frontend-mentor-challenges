@@ -1,0 +1,37 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.header-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 16px;
+  background-color: var(--color-neutral-100);
+  border-bottom: 1px solid var(--color-neutral-400);
+  z-index: 98;
+
+  .menu-btn {
+    background-color: var(--color-neutral-100);
+    border: 1px solid var(--color-neutral-400);
+    border-radius: 8px;
+    padding: 8px 8px 4px 8px;
+
+    &:focus-visible {
+      background-color: var(--color-neutral-0);
+      outline: 2px solid var(--color-terracotta-500);
+      outline-offset: 2px;
+    }
+  }
+}
+
+@include respond-desktop(md) {
+  .header-container {
+    display: flex;
+  }
+}
