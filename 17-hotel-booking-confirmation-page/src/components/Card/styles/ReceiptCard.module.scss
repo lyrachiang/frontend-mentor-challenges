@@ -175,3 +175,12 @@
     padding: 20px;
   }
 }
+
+@media print {
+  .receipt-card-container {
+    width: 100%;
+    transform: none;
+    rotate: 0;
+    box-shadow: none;
+  }
+}

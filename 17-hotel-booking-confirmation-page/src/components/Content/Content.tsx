@@ -1,4 +1,7 @@
+import { useRef } from 'react';
 import classNames from 'classnames/bind';
+import { useReactToPrint } from 'react-to-print';
+import { createEvent } from 'ics';
 
 import styles from './Content.module.scss';
 
@@ -7,12 +10,47 @@ import WifiIcon from '@/assets/images/icons/icon-wifi.svg?react';
 import BreakfastIcon from '@/assets/images/icons/icon-breakfast.svg?react';
 import SunImg from '@/assets/images/illustration-sun.svg';
 
+import { useToast } from '@/contexts/ToastContext';
 import Button from '@/components/Button';
 import { ReceiptCard, WelcomeCard, GuestInfoCard } from '@/components/Card';
 
 const cx = classNames.bind(styles);
 
 const Content = () => {
+  const { showToast } = useToast();
+
+  const receiptRef = useRef<HTMLDivElement>(null);
+  const handlePrint = useReactToPrint({
+    contentRef: receiptRef
+  });
+
+  const handleAddToCalendar = () => {
+    const { error, value } = createEvent({
+      title: 'Stay at Maison Soleil',
+      start: [2026, 4, 25, 15, 0],
+      end: [2026, 4, 29, 11, 0],
+      location: '12 Rue des Oliviers',
+      description: 'Room: La Garrigue (4 nights), Breakfast: 2 guests'
+    });
+
+    if (error || !value) {
+      showToast('Something went wrong while downloading the calendar file. Please try again.', 'error');
+      return;
+    }
+
+    const blob = new Blob([value], {
+      type: 'text/calendar;charset=utf-8'
+    });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'maison-soleil-booking.ics';
+    a.click();
+
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <main className={cx('content-container')}>
       <div className={cx('main-block')}>
@@ -22,14 +60,14 @@ const Content = () => {
         <div className={cx('main-info')}>
           <p className={cx('title')}>Bienvenue, <span>Lucia.</span></p>
           <div className={cx('toolbar')}>
-            <Button variant='primary'>Print receipt</Button>
-            <Button variant='secondary'>Add to calendar</Button>
+            <Button variant='primary' onClick={handlePrint}>Print receipt</Button>
+            <Button variant='secondary' onClick={handleAddToCalendar}>Add to calendar</Button>
           </div>
         </div>
       </div>
       <div className={cx('booking-info-block')}>
         <div className={cx('booking-cards')}>
-          <ReceiptCard />
+          <ReceiptCard ref={receiptRef} />
           <div className={cx('img-sun')}>
             <img src={SunImg} alt='sun' />
             <span className={cx('hover-note')}>hover to fan</span>

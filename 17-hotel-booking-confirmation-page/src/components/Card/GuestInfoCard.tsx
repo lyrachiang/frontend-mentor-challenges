@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './styles/GuestInfoCard.module.scss';
 
+import { useToast } from '@/contexts/ToastContext';
 import Button from '@/components/Button';
 
 const cx = classNames.bind(styles);
@@ -21,18 +21,14 @@ type GuestInfoCardProps = {
 const wifiPwd = 'soleil-2026';
 
 const WifiInfo = () => {
-  const [copied, setCopied] = useState(false);
+  const { showToast } = useToast();
 
   const onClickCopyBtn = async () => {
     try {
       await navigator.clipboard.writeText(wifiPwd);
-
-      setCopied(true);
-      setTimeout(() => {
-        setCopied(false);
-      }, 1000);
+      showToast('Password copied.', 'success');
     } catch {
-      // do nothing
+      showToast('Couldn\'t copy the password. Please try again.', 'error');
     }
   };
 
@@ -47,7 +43,7 @@ const WifiInfo = () => {
         <div>
           <span className={cx('value')}>{wifiPwd}</span>
           <Button variant='copy' onClick={onClickCopyBtn}>
-            {copied ? '✓Copy' : 'Copy'}
+            Copy
           </Button>
         </div>
       </div>

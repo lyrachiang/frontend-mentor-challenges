@@ -1,3 +1,7 @@
+import {
+  type HTMLAttributes,
+  type Ref
+} from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './styles/ReceiptCard.module.scss';
@@ -6,9 +10,15 @@ import BarcodeIcon from '@/assets/images/icons/icon-barcode.svg?react';
 
 const cx = classNames.bind(styles);
 
-const ReceiptCard = () => {
+type ReceiptCardProps = HTMLAttributes<HTMLDivElement> & {
+  ref?: Ref<HTMLDivElement>;
+};
+
+const ReceiptCard = (props: ReceiptCardProps) => {
+  const { ref } = props;
+
   return (
-    <div className={cx('receipt-card-container')}>
+    <div className={cx('receipt-card-container')} ref={ref}>
       <div className={cx('card-header')}>
         <div>
           <p>Receipt</p>
