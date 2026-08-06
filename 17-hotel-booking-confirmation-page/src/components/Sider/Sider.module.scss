@@ -60,24 +60,79 @@
   }
 }
 
-
 .content-block {
   flex: auto;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  min-height: 0;
 
   .nav-list {
     list-style: none;
     padding: 0;
     margin-bottom: 20px;
+    overflow-y: auto;
 
     > li {
       margin-bottom: 2px;
+      padding: 4px;
+    }
+
+    .menu-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      background-color: transparent;
+      border-radius: 10px;
+      padding: 16px;
+
+      &:hover {
+        background-color: var(--color-neutral-0);
+      }
+
+      &:focus-visible {
+        background-color: var(--color-neutral-0);
+        outline: 2px solid var(--color-terracotta-500);
+        outline-offset: 2px;
+      }
+
+      &.active {
+        background-color: var(--color-neutral-0);
+      }
+
+      .menu-icon {
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
+      }
+
+      .menu-title {
+        flex: auto;
+        font-family: var(--ff-dm-sans);
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--color-neutral-600);
+      }
+
+      .menu-notify {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        font-family: var(--ff-dm-sans);
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-neutral-0);
+        background-color: var(--color-terracotta-500);
+      }
     }
   }
 
   .local-weather-info {
+    flex-shrink: 0;
     position: relative;
     background-color: var(--color-sun-200);
     border-radius: 10px;

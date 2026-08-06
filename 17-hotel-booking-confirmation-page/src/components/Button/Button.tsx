@@ -4,14 +4,14 @@ import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
-type ButtonVariant = 'primary' | 'secondary' | 'nav' | 'copy' ;
+type ButtonVariant = 'primary' | 'secondary' | 'copy' ;
 
 type ButtonProps = {
   icon?: React.ReactNode;
   block?: boolean;
   variant?: ButtonVariant;
   active?: boolean;
-  suffix?: string;
+  ref?: React.Ref<HTMLButtonElement>;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = (props: ButtonProps) => {
@@ -20,9 +20,9 @@ const Button = (props: ButtonProps) => {
     block,
     variant = 'primary',
     active = false,
-    suffix,
     children,
     className,
+    ref,
     ...rest
   } = props;
 
@@ -33,27 +33,13 @@ const Button = (props: ButtonProps) => {
 
   return (
     <button
+      ref={ref}
       className={cx('btn-container', `btn-${variant}`, className, customClass)}
       type="button"
       {...rest}
     >
-      {variant === 'nav'
-        ? (
-          <>
-            <span>  
-              {icon && (<span className={cx('btn-icon')}>{icon}</span>)}
-              {children && <span className={cx('btn-text')}>{children}</span>}
-            </span>
-            {suffix && (<span className={cx('btn-suffix')}>{suffix}</span>)}
-          </>
-        )
-        : (
-          <>
-            {icon && (<span className={cx('btn-icon')}>{icon}</span>)}
-            {children && <span className={cx('btn-text')}>{children}</span>}
-          </>
-        )
-      }
+      {icon && (<span className={cx('btn-icon')}>{icon}</span>)}
+      {children && <span className={cx('btn-text')}>{children}</span>}
     </button>
   );
 };

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './Sider.module.scss';
@@ -14,23 +15,105 @@ import Button from '@/components/Button';
 
 const cx = classNames.bind(styles);
 
+const menuList = [
+  { id: '1', title: 'Your stay', icon: <BedIcon />, link: '#your-stay', notify: 1, active: true },
+  { id: '2', title: 'The house', icon: <HouseIcon />, link: '#the-house', notify: 0, active: false },
+  { id: '3', title: 'Around town', icon: <PinIcon />, link: '#around-town', notify: 0, active: false },
+  { id: '4', title: 'Breakfast', icon: <BreakfastIcon />, link: '#breakfast', notify: 0, active: false },
+  { id: '5', title: 'Messages', icon: <MailIcon />, link: '#messages', notify: 0, active: false }
+];
+
+type MenuItemProps = {
+  title: string;
+  icon: React.ReactNode;
+  link: string;
+  notify: number;
+  active: boolean;
+  onClick: () => void;
+};
+
 type SiderProps = {
   showMenu: boolean;
+  openedMenuByKeyboardRef: React.RefObject<boolean>;
   onClickCloseMenuBtn: () => void;
+  onClickMenuItem: () => void;
+};
+
+const MenuItem = (props: MenuItemProps) => {
+  const { title, icon, link, notify, active, onClick } = props;
+
+  return (
+    <li>
+      <a
+        className={cx('menu-item', { active })}
+        href={link}
+        onClick={onClick}
+      >
+        <span className={cx('menu-icon')}>{icon}</span>
+        <span className={cx('menu-title')}>{title}</span>
+        {notify > 0 && (<span className={cx('menu-notify')}>{notify}</span>)}
+      </a>
+    </li>
+  );
 };
 
 const Sider = (props: SiderProps) => {
-  const { showMenu, onClickCloseMenuBtn } = props;
+  const {
+    showMenu,
+    openedMenuByKeyboardRef,
+    onClickCloseMenuBtn,
+    onClickMenuItem
+  } = props;
+
+  const asideRef = useRef<HTMLElement>(null);
+  const closeMenuBtnRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (showMenu && openedMenuByKeyboardRef?.current) {
+      closeMenuBtnRef.current?.focus();
+    }
+  }, [showMenu, openedMenuByKeyboardRef]);
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key !== 'Tab' || !showMenu) {
+      return;
+    }
+
+    const focusableEls = asideRef.current?.querySelectorAll<HTMLElement>('a[href], button:not([disabled]');
+
+    if (!focusableEls || focusableEls.length === 0) {
+      return;
+    }
+
+    const firstItem = focusableEls[0];
+    const lastItem = focusableEls[focusableEls.length - 1];
+
+    if (!e.shiftKey && document.activeElement === lastItem) {
+      e.preventDefault();
+      firstItem?.focus();
+    } else if (e.shiftKey && document.activeElement === firstItem) {
+      e.preventDefault();
+      lastItem?.focus();
+    }
+  };
 
   return (
-    <aside className={cx('sider-container', { active: showMenu })}>
+    <aside
+      id='siderMenu'
+      ref={asideRef}
+      className={cx('sider-container', { active: showMenu })}
+      onKeyDown={handleKeyDown}
+    >
       <div className={cx('logo-block')}>
         <h1>
-          <LogoIcon />
-          <span className={cx('hidden')}>Maison Soleil</span>
+          <a href="#">
+            <LogoIcon />
+            <span className={cx('hidden')}>Maison Soleil</span>
+          </a>
         </h1>
         {showMenu && (
           <Button
+            ref={closeMenuBtnRef}
             className={cx('close-menu-btn')}
             icon={<CloseIcon />}
             onClick={onClickCloseMenuBtn}
@@ -39,53 +122,19 @@ const Sider = (props: SiderProps) => {
       </div>
       <div className={cx('content-block')}>
         <ul className={cx('nav-list')}>
-          <li>
-            <Button
-              icon={<BedIcon />}
-              variant='nav'
-              block={true}
-              suffix='1'
-              active={true}
-            >
-              Your stay
-            </Button>
-          </li>
-          <li>
-            <Button
-              icon={<HouseIcon />}
-              variant='nav'
-              block={true}
-            >
-              The house
-            </Button>
-          </li>
-          <li>
-            <Button
-              icon={<PinIcon />}
-              variant='nav'
-              block={true}
-            >
-              Around town
-            </Button>
-          </li>
-          <li>
-            <Button
-              icon={<BreakfastIcon />}
-              variant='nav'
-              block={true}
-            >
-              Breakfast
-            </Button>
-          </li>
-          <li>
-            <Button
-              icon={<MailIcon />}
-              variant='nav'
-              block={true}
-            >
-              Messages
-            </Button>
-          </li>
+          {menuList.map((item) => {
+            return (
+              <MenuItem
+                key={item.id}
+                title={item.title}
+                icon={item.icon}
+                link={item.link}
+                notify={item.notify}
+                active={item.active}
+                onClick={onClickMenuItem}
+              />
+            );
+          })}
         </ul>
         <div className={cx('local-weather-info')}>
           <p>Today in Cassis</p>

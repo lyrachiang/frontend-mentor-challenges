@@ -10,19 +10,30 @@ import Button from '@/components/Button';
 const cx = classNames.bind(styles);
 
 type HeaderProps = {
+  showMenu: boolean;
+  menuBtnRef: React.RefObject<HTMLButtonElement | null>;
   onClickMenuBtn: () => void;
 };
 
 const Header = (props: HeaderProps) => {
-  const { onClickMenuBtn } = props;
+  const {
+    showMenu,
+    menuBtnRef,
+    onClickMenuBtn
+  } = props;
 
   return (
     <header className={cx('header-container')}>
-      <LogoIcon />
+      <a href="#">
+        <LogoIcon />
+      </a>
       <Button
+        ref={menuBtnRef}
         className={cx('menu-btn')}
         icon={<MenuIcon />}
         onClick={onClickMenuBtn}
+        aria-expanded={showMenu}
+        aria-controls='siderMenu'
       />
     </header>
   );

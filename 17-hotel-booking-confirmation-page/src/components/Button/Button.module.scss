@@ -63,60 +63,6 @@
     }
   }
 
-  &.btn-nav {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: transparent;
-    border-radius: 10px;
-    padding: 16px;
-
-    > span {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    &:hover {
-      background-color: var(--color-neutral-0);
-    }
-
-    &:focus-visible {
-      background-color: var(--color-neutral-0);
-      outline: 2px solid var(--color-terracotta-500);
-      outline-offset: 2px;
-    }
-
-    &.active {
-      background-color: var(--color-neutral-0);
-    }
-
-    .btn-icon {
-      width: 18px;
-      height: 18px;
-    }
-
-    .btn-text {
-      font-family: var(--ff-dm-sans);
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--color-neutral-600);
-    }
-
-    .btn-suffix {
-      display: inline-block;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-      border-radius: 100%;
-      font-family: var(--ff-dm-sans);
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--color-neutral-0);
-      background-color: var(--color-terracotta-500);
-    }
-  }
-
   &.btn-copy {
     color: var(--color-neutral-600);
     background-color: var(--color-neutral-100);
