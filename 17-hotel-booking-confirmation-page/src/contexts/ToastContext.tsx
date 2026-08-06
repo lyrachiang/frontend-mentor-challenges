@@ -49,7 +49,11 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
   return (
     <ToastContext.Provider value={{ toasts, showToast, removeToast }}>
       {children}
-      <div className={cx('toast-container')}>
+      <div
+        className={cx('toast-container')}
+        aria-live='polite'
+        aria-atomic='false'
+      >
         {toasts.map(toast => (
           <div key={toast.id} className={cx('toast', toast.type)}>
             {toast.message}
