@@ -1,0 +1,28 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.header-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 0px 40px 0px;
+
+  .title {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--color-text-heading);
+    text-transform: uppercase;
+    letter-spacing: 12px;
+  }
+}
+
+@include respond-desktop(md) {
+  .header-container {
+    padding: 20px 0px;
+
+    .title {
+      font-size: 30px;
+    }
+  }
+}

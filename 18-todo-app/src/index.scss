@@ -1,0 +1,118 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+@mixin theme-light {
+  --bg-image: url('@/assets/images/bg-desktop-light.jpg');
+
+  /* Background */
+  --color-bg: hsl(0, 0%, 98%);
+  --color-bg-list: hsl(0, 0%, 100%);
+  --color-bg-check: hsl(233, 11%, 84%);
+  --color-bg-check-active: hsl(0, 0%, 100%);
+  --color-bg-check-completed-linear-top: hsl(192, 100%, 67%);
+  --color-bg-check-completed-linear-bottom: hsl(280, 87%, 65%);
+
+  /* Text */
+  --color-text: hsl(235, 19%, 35%);
+  --color-text-hover: hsl(233, 11%, 84%);
+  --color-text-heading: hsl(0, 0%, 100%);
+  --color-text-placeholder: hsl(236, 9%, 61%);
+  --color-text-title: hsl(235, 19%, 35%);
+  --color-text-completed: hsl(233, 11%, 84%);
+  --color-text-button: hsl(236, 9%, 61%);
+  --color-text-button-hover: hsl(235, 19%, 35%);
+  --color-text-button-active: hsl(220, 98%, 61%);
+  --color-text-tip: hsl(235, 16%, 43%);
+  --color-text-footer: hsl(236, 9%, 61%);
+  --color-text-footer-link: hsl(228, 45%, 44%);
+
+  /* Border */
+  --color-border: hsl(233, 11%, 84%);
+  --color-border-outline: hsl(220, 98%, 61%);
+
+  --color-shadow: hsla(212, 30%, 20%, 0.12);
+}
+
+@mixin theme-dark {
+  --bg-image: url('@/assets/images/bg-desktop-dark.jpg');
+
+  /* Background */
+  --color-bg: hsl(235, 21%, 11%);
+  --color-bg-list: hsl(235, 24%, 19%);
+  --color-bg-check: hsl(233, 14%, 35%);
+  --color-bg-check-active: hsl(235, 24%, 19%);
+  --color-bg-check-completed-linear-top: hsl(192, 100%, 67%);
+  --color-bg-check-completed-linear-bottom: hsl(280, 87%, 65%);
+
+  /* Text */
+  --color-text: hsl(234, 39%, 85%);
+  --color-text-hover: hsl(235, 24%, 19%);
+  --color-text-heading: hsl(0, 0%, 100%);
+  --color-text-placeholder: hsl(235, 16%, 43%);
+  --color-text-title: hsl(236, 9%, 61%);
+  --color-text-completed: hsl(233, 14%, 35%);
+  --color-text-button: hsl(233, 14%, 35%);
+  --color-text-button-hover: hsl(0, 0%, 100%);
+  --color-text-button-active: hsl(220, 98%, 61%);
+  --color-text-tip: hsl(236, 9%, 61%);
+  --color-text-footer: hsl(236, 9%, 61%);
+  --color-text-footer-link: hsl(228, 45%, 44%);
+
+  /* Border */
+  --color-border: hsl(235, 16%, 43%);
+
+  /* Shadow */
+  --color-shadow: hsla(212, 30%, 20%, 0.12);
+}
+
+:root {
+  --ff-primary: "Josefin Sans", sans-serif;
+  @include theme-light;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-size: 18px;
+  font-weight: 400;
+  background-color: var(--color-bg);
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root { @include theme-dark; }
+}
+
+[data-theme='light'] { @include theme-light; }
+[data-theme='dark'] { @include theme-dark; }
+
+@include respond-desktop(md) {
+  :root {
+    --bg-image: url('@/assets/images/bg-mobile-light.jpg');
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-image: url('@/assets/images/bg-mobile-dark.jpg');
+    }
+  }
+
+  [data-theme='light'] {
+    --bg-image: url('@/assets/images/bg-mobile-light.jpg');
+  }
+
+  [data-theme='dark'] {
+    --bg-image: url('@/assets/images/bg-mobile-dark.jpg');
+  }
+}
