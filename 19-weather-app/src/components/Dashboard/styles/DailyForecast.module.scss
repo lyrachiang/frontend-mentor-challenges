@@ -1,0 +1,85 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.daily-forecast-container {
+  margin-top: 40px;
+
+  .daily-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--color-neutral-0);
+    margin-bottom: 20px;
+  }
+
+  .daily-info {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 16px;
+  }
+}
+
+.daily-item {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--color-neutral-800);
+  border: 1px solid var(--color-neutral-600);
+  border-radius: 10px;
+  padding: 20px 10px;
+
+  .daily-weekday {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--color-neutral-0);
+  }
+
+  .weather-icon {
+    width: 50px;
+    height: 50px;
+    margin: 16px 0;
+  }
+
+  .temperature-range {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > span {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--color-neutral-0);
+    }
+  }
+}
+
+.daily-item-pending {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-neutral-800);
+  border: 1px solid var(--color-neutral-600);
+  border-radius: 10px;
+
+  > svg {
+    fill: var(--color-neutral-0);
+  }
+}
+
+@include respond-desktop(md) {
+  .daily-forecast-container  {
+    .daily-info {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@include respond-desktop(xxs) {
+  .daily-forecast-container  {
+    .daily-info {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

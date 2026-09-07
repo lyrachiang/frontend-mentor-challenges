@@ -1,0 +1,143 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.search-container {
+  position: relative;
+  margin: 0 auto;
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 450px auto;
+  grid-gap: 20px;
+
+  .search-block {
+    width: 450px;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-neutral-800);
+    border-radius: 8px;
+    padding: 12px 16px;
+
+    > input {
+      width: 100%;
+      font-size: 16px;
+      color: var(--color-neutral-0);
+      background-color: var(--color-neutral-800);
+      border: none;
+      margin-left: 8px;
+
+      &::placeholder {
+        color: var(--color-neutral-200);
+      }
+
+      &:focus-within {
+        outline: none;
+      }
+
+      &:-internal-autofill-selected {
+        background-color: var(--color-neutral-800);
+      }
+    }
+  }
+
+  .search-dropdown {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 450px;
+    list-style: none;
+    background-color: var(--color-neutral-800);
+    border-radius: 8px;
+    box-shadow: var(--color-shadow) 0px 8px 24px;
+    margin: 0;
+    padding: 8px;
+
+    > li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      .title {
+        font-size: 16px;
+        color: var(--color-neutral-0);
+      }
+
+      &.msg {
+        padding: 8px;
+
+        &.progress > svg {
+          margin-right: 8px;
+        }
+
+        &.error {
+          color: var(--color-red-500);
+        }
+      }
+
+      &.city-item {
+        > a {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          border: 1px solid transparent;
+          border-radius: 8px;
+          padding: 8px;
+
+          &:hover {
+            background-color: var(--color-neutral-700);
+            border: 1px solid var(--color-neutral-600);
+          }
+
+          &:focus-visible {
+            outline: 2px solid var(--color-blue-500);
+            outline-offset: 2px;
+          }
+        }
+
+        .country-flag {
+          width: 24px;
+          height: 16px;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
+
+@include respond-desktop(md) {
+  .search-container {
+    grid-template-columns: 350px auto;
+
+    .search-block {
+      width: 350px;
+    }
+
+    .search-dropdown {
+      width: 350px;
+    }
+  }
+}
+
+@include respond-desktop(sm) {
+  .search-container {
+    width: 100%;
+    grid-template-columns: 1fr;
+
+    .search-block {
+      width: 100%;
+    }
+
+    .search-btn {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .search-dropdown {
+      width: 100%;
+    }
+  }
+}

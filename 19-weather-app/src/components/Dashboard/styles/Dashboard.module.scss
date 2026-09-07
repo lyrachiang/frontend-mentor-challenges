@@ -1,0 +1,15 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.dashboard-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 750px auto;
+  grid-gap: 30px;
+}
+
+@include respond-desktop(xl) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+  }
+}

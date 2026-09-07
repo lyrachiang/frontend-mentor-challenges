@@ -22,3 +22,4 @@
 | 16  | Typing speed test     | Junior     | [Solution](https://github.com/lyrachiang/frontend-mentor-challenges/tree/main/16-typing-speed-test)    | [Demo](https://lyrachiang.github.io/frontend-mentor-challenges/16-typing-speed-test/)  |
 | 17  | Hotel booking confirmation page     | Junior     | [Solution](https://github.com/lyrachiang/frontend-mentor-challenges/tree/main/17-hotel-booking-confirmation-page)    | [Demo](https://lyrachiang.github.io/frontend-mentor-challenges/17-hotel-booking-confirmation-page/)  |
 | 18  | Todo app     | Intermediate   | [Solution](https://github.com/lyrachiang/frontend-mentor-challenges/tree/main/18-todo-app)    | [Demo](https://lyrachiang.github.io/frontend-mentor-challenges/18-todo-app/)  |
+| 19  | Weather app     | Intermediate   | [Solution](https://github.com/lyrachiang/frontend-mentor-challenges/tree/main/19-weather-app)    | [Demo](https://lyrachiang.github.io/frontend-mentor-challenges/19-weather-app/)  |
