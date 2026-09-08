@@ -6,6 +6,11 @@ export const fetchCities = async(name: string) => {
     format: 'json'
   };
   const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?${new URLSearchParams(reqData).toString()}`);
+
+  if (!response.ok) {
+    throw new Error(`Request failed: ${response.status}`);
+  }
+
   return await response.json();
 };
 
@@ -22,5 +27,10 @@ export const fetchWeatherByCoordinates = async({ latitude, longitude, unit }: { 
     timezone: 'auto'
   };
   const response = await fetch(`https://api.open-meteo.com/v1/forecast?${new URLSearchParams(reqData).toString()}`);
+
+  if (!response.ok) {
+    throw new Error(`Request failed: ${response.status}`);
+  }
+
   return await response.json();
 };

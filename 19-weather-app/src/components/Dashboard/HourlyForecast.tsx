@@ -85,9 +85,9 @@ const HourlyForecast = (props: HourlyForecastProps) => {
   const currentHourlyWeatherCode = data?.weather_code?.slice(currentHourlyStartIdx, currentHourlyEndIdx) || [];
 
   return (
-    <div className={cx('hourly-forecast-container')}>
+    <section className={cx('hourly-forecast-container')}>
       <div className={cx('hourly-header')}>
-        <p className={cx('hourly-title')}>Hourly forecast</p>
+        <h3 className={cx('hourly-title')}>Hourly forecast</h3>
         <Select
           value={selectedDate}
           dailyDate={dailyDate}
@@ -118,7 +118,7 @@ const HourlyForecast = (props: HourlyForecastProps) => {
           }))
         }
       </div>
-    </div>
+    </section>
   );
 };
 

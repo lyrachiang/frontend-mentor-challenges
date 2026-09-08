@@ -59,8 +59,8 @@ const DailyForecast = (props: DailyForecastProps) => {
   } = props;
 
   return (
-    <div className={cx('daily-forecast-container')}>
-      <p className={cx('daily-title')}>Daily forecast</p>
+    <section className={cx('daily-forecast-container')}>
+      <h3 className={cx('daily-title')}>Daily forecast</h3>
       <div className={cx('daily-info')}>
         {isSuccess && data?.time?.length === 7
           ? (data?.time.map((item, idx) => {
@@ -86,7 +86,7 @@ const DailyForecast = (props: DailyForecastProps) => {
           }))
         }
       </div>
-    </div>
+    </section>
   );
 };
 
