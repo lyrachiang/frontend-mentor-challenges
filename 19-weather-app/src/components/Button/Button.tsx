@@ -4,7 +4,7 @@ import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
-type ButtonVariant = 'primary' | 'default';
+type ButtonVariant = 'primary' | 'default' | 'search';
 
 type ButtonProps = {
   icon?: React.ReactNode;

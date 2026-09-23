@@ -13,6 +13,13 @@ import Button from '@/components/Button';
 
 const cx = classNames.bind(styles);
 
+type SearchDropdownMsgProps = {
+  isPending: boolean;
+  isError: boolean;
+  isSuccess: boolean;
+  cities: City[];
+};
+
 type SearchDropdownProps = {
   ref: React.Ref<HTMLUListElement>;
   isPending: boolean;
@@ -24,6 +31,35 @@ type SearchDropdownProps = {
 
 type SearchProps = {
   onSearchCity: (city: City) => void;
+};
+
+const SearchDropdownMsg = (props: SearchDropdownMsgProps) => {
+  const {
+    isPending,
+    isError,
+    isSuccess,
+    cities
+  } = props;
+
+  return (
+    <div
+      className={cx('search-dropdown-msg', { progress: isPending, error: isError })}
+      aria-live='polite'
+    >
+      {isPending && (
+        <>
+          <LoadingIcon />
+          <span className={cx('title')}>Search in progress</span>
+        </>
+      )}
+      {isError && (
+        <span className={cx('title')}>Search failed, please try again later</span>
+      )}
+      {isSuccess && cities.length === 0 && (
+        <span className={cx('title')}>No search result found</span>
+      )}
+    </div>
+  );
 };
 
 const SearchDropdown = (props: SearchDropdownProps) => {
@@ -54,49 +90,53 @@ const SearchDropdown = (props: SearchDropdownProps) => {
     return title;
   };
 
-  const handleSearchCity = (e: React.MouseEvent<HTMLAnchorElement>, city: City) => {
+  const handleSearchCity = (e: React.MouseEvent<HTMLButtonElement>, city: City) => {
     e.preventDefault();
     onSearchCity(city);
   };
 
+  if (isPending
+    || isError
+    || (isSuccess && cities.length === 0)
+  ) {
+    return (
+      <SearchDropdownMsg
+        isPending={isPending}
+        isError={isError}
+        isSuccess={isSuccess}
+        cities={cities}
+      />
+    );
+  }
+
   return (
     <ul
+      id='cityResults'
+      role='listbox'
       ref={ref}
       className={cx('search-dropdown')}
     >
-      {isPending && (
-        <li className={cx('msg', 'progress')}>
-          <LoadingIcon />
-          <span className={cx('title')}>Search in progress</span>
-        </li>
-      )}
-      {isError && (
-        <li className={cx('msg', 'error')}>
-          <span className={cx('title')}>Search failed, please try again later</span>
-        </li>
-      )}
-      {isSuccess && cities.length === 0 && (
-        <li className={cx('msg')}>
-          <span className={cx('title')}>No search result found</span>
-        </li>
-      )}
-      {isSuccess && cities.map((city) => {
+      {cities.map((city) => {
         return (
           <li
             key={city.id}
             className={cx('city-item')}
+            role='option'
           >
-            <a
-              href="#"
-              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleSearchCity(e, city)}
+            <Button
+              variant='search'
+              block={true}
+              icon={
+                <img
+                  className={cx('country-flag')}
+                  src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${city.country_code}.svg`}
+                  alt={city.country}
+                />
+              }
+              onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleSearchCity(e, city)}
             >
-              <img
-                className={cx('country-flag')}
-                src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${city.country_code}.svg`}
-                alt={city.country}
-              />
-              <span className={cx('title')}>{getTitle(city)}</span>
-            </a>
+              {getTitle(city)}
+            </Button>
           </li>
         );
       })}
@@ -133,7 +173,7 @@ const Search = (props: SearchProps) => {
     }
 
     if (isSuccess && data?.results && data.results.length > 0) {
-      const firstLink = dropdownRef.current?.querySelector('a');
+      const firstLink = dropdownRef.current?.querySelector('button');
       firstLink?.focus();
     }
   }, [showDropdownMenu, isSuccess, data]);
@@ -212,7 +252,11 @@ const Search = (props: SearchProps) => {
     <div className={cx('search-container')}>
       <div className={cx('search-block')}>
         <SearchIcon />
+        <label htmlFor='searchInput' className={cx('visually-hidden')}>
+          Search for a city
+        </label>
         <input
+          id='searchInput'
           ref={inputRef}
           type='search'
           name='searchInput'
@@ -221,6 +265,10 @@ const Search = (props: SearchProps) => {
           value={inputCity}
           onChange={handleChangeInput}
           onKeyDown={handleKeyDown}
+          role='combobox'
+          aria-expanded={showDropdownMenu}
+          aria-controls='cityResults'
+          aria-autocomplete='list'
         />
       </div>
       <Button

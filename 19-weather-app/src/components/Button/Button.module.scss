@@ -58,4 +58,28 @@
       outline-offset: 2px;
     }
   }
+
+  &.btn-search {
+    justify-content: flex-start;
+    background-color: var(--color-neutral-800);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 8px;
+
+    .btn-text {
+      font-size: 16px;
+      color: var(--color-neutral-0);
+      text-align: left;
+    }
+
+    &:hover {
+      background-color: var(--color-neutral-700);
+      border: 1px solid var(--color-neutral-600);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-blue-500);
+      outline-offset: 2px;
+    }
+  }
 }

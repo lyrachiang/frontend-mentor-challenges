@@ -29,6 +29,7 @@ const Select = (props: SelectProps) => {
       name='weekday'
       value={value}
       onChange={onChangeDate}
+      aria-label='Select forecast day'
     >
       {dailyDate.length === 0
         ? (
